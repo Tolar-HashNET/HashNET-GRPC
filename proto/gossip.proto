@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package tolar.proto;
+
+service Gossip {
+  rpc GetDiff (DiffRequest) returns (stream SerializedEvent);
+  rpc GetLastChainEventHash(GetChainEventRequest) returns (GetLastChainEventHashResponse);
+  rpc GetFirstChainEvent(GetChainEventRequest) returns (SerializedEvent);
+}
+
+message LastChainEventIndex {
+  bytes chain_id = 1;
+  uint64 last_event_index = 2;
+}
+
+message DiffRequest {
+  repeated LastChainEventIndex last_chain_event_index = 1;
+}
+
+// This message is used to minimize deserialization/serialization for diff sender.
+// gRPC does not support sending already serialized buffers so this is closest we
+// can get to it. Instead of deserialization/serialization of individual event
+// fields (and the same for each transaction), here we serialize a single field
+// directly from cache or storage.
+message SerializedEvent {
+  bytes event = 1;
+}
+
+message GetChainEventRequest {
+  bytes chain_id = 1;
+}
+
+message GetLastChainEventHashResponse {
+  bytes hash = 1;
+}

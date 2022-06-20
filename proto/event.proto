@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package tolar.proto;
+
+import "transaction.proto";
+
+message EventBody {
+  bytes signer = 1;
+  bytes self_parent_hash = 2;
+  bytes other_parent_hash = 3;
+  uint64 timestamp = 4;
+  repeated SignedTransaction transactions = 5;
+}
+
+message Event {
+  bytes signature = 1;
+  EventBody body = 2;
+}

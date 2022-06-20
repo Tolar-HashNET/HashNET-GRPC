@@ -69,7 +69,7 @@ def main(argv, arc):
     arg_parse.add_argument('--output', type=str, required=True)
     arg_parse.add_argument('--language', type=str, required=True)
     arg_parse.add_argument('--commit', type=str)
-    arg_parse.add_argument('--legacy', action='store_true', default=True)
+    arg_parse.add_argument('--legacy', action='store_true', default=False)
 
     args = arg_parse.parse_args()
 

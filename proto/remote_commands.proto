@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+package tolar.proto;
+
+service RemoteCommands {
+    rpc NodeShutdown (NodeShutdownRequest) returns (NodeShutdownResponse);
+    rpc NodeGetConfig (NodeGetConfigRequest) returns (NodeGetConfigResponse);
+    rpc NodeGetStats (NodeGetStatsRequest) returns (NodeGetStatsResponse);
+    rpc NodeSetLoggingLevel (NodeSetLoggingLevelRequest) returns (NodeSetLoggingLevelResponse);
+}
+
+message NodeShutdownRequest {
+}
+
+message NodeShutdownResponse {
+}
+
+message NodeGetConfigRequest {
+}
+
+message NodeGetConfigResponse {
+    string config = 1;
+}
+
+message NodeGetStatsRequest {
+}
+
+message NodeGetStatsResponse {
+    string stats = 1;
+}
+
+enum LoggingLevel {
+    LOG_LEVEL_TRACE = 0;
+    LOG_LEVEL_DEBUG = 1;
+    LOG_LEVEL_INFO = 2;
+    LOG_LEVEL_WARNING = 3;
+    LOG_LEVEL_ERROR = 4;
+    LOG_LEVEL_CRITICAL = 5;
+    LOG_LEVEL_OFF = 6;
+}
+
+message NodeSetLoggingLevelRequest {
+    LoggingLevel logging_level = 1;
+}
+
+message NodeSetLoggingLevelResponse {
+    bool success = 1;
+}

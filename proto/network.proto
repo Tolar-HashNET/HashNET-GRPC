@@ -9,22 +9,26 @@ service NetworkService {
     rpc MaxPeerCount(MaxPeerCountRequest) returns (MaxPeerCountResponse);
 }
 
-message PeerCountRequest{}
+message PeerCountRequest{
+}
 message PeerCountResponse{
     uint64 count = 1;
 }
 
-message MasterNodeCountRequest{}
+message MasterNodeCountRequest{
+}
 message MasterNodeCountResponse{
     uint64 count = 1;
 }
 
-message IsMasterNodeRequest{}
+message IsMasterNodeRequest{
+}
 message IsMasterNodeResponse{
     bool is_master = 1;
 }
 
-message MaxPeerCountRequest{}
+message MaxPeerCountRequest{
+}
 message MaxPeerCountResponse{
     uint64 count = 1;
 }

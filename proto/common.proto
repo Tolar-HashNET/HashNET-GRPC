@@ -1,9 +1,0 @@
-syntax = "proto3";
-
-package tolar.proto;
-
-message SignatureData {
-    bytes hash = 1;
-    bytes signature = 2;
-    bytes signer_id = 3;
-}
