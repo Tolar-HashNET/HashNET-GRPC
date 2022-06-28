@@ -476,10 +476,3 @@ MigrationBackup/
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,visualstudio,visualstudiocode,clion,xcode,cmake
 
-# Playfield directories
-tolar/tools/playfield/
-tolar/lib/playfield/
-tolar/include/tolar/playfield/
-
-# Generated master node directories
-scripts/master_node*
