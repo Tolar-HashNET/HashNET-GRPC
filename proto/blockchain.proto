@@ -197,7 +197,7 @@ message GetTransactionReceiptResponse {
 }
 
 message GetGasEstimateResponse {
-    bytes gas_estimate = 1;
+    uint64 gas_estimate = 1;
 }
 
 message TryCallTransactionResponse {
