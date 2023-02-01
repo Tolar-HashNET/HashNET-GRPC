@@ -4,7 +4,7 @@ package tolar.proto;
 
 service Gossip {
   rpc GetDiff (DiffRequest) returns (stream SerializedEvent);
-  rpc GetLastChainEventHash(GetChainEventRequest) returns (GetLastChainEventHashResponse);
+  rpc GetLastChainEvent(GetChainEventRequest) returns (GetLastChainEventResponse);
   rpc GetFirstChainEvent(GetChainEventRequest) returns (SerializedEvent);
 }
 
@@ -30,6 +30,7 @@ message GetChainEventRequest {
   bytes chain_id = 1;
 }
 
-message GetLastChainEventHashResponse {
+message GetLastChainEventResponse {
   bytes hash = 1;
+  uint64 index = 2;
 }
