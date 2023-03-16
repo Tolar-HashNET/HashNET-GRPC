@@ -3,6 +3,7 @@ syntax = "proto3";
 package tolar.proto;
 
 import "block.proto";
+import "transaction.proto";
 
 enum SentinelRank {
   NONE = 0;
@@ -53,6 +54,18 @@ message SentinelsPerRound {
 }
 
 message TransactionLocation {
-   bytes block_hash = 1;
-   uint64 transaction_index = 2;
+  bytes block_hash = 1;
+  uint64 transaction_index = 2;
+}
+
+message BlockTx {
+  repeated SignedTransaction txs = 1;
+}
+
+message FullNodeRecovery {
+  uint64 network_id = 1;
+  bytes max_block_gas_limit = 2;
+  string last_state_root_hash = 3;
+  bytes last_block_hash = 4;
+  uint64 last_block_index = 5;
 }
