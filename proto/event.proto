@@ -4,12 +4,25 @@ package tolar.proto;
 
 import "transaction.proto";
 
+
+enum NodeAction {
+  ADD = 0;
+  REMOVE = 1;
+}
+
+message NodeMeta {
+  NodeAction action = 1;
+  bytes node = 2;
+  string endpoint = 3;
+}
+
 message EventBody {
   bytes signer = 1;
   bytes self_parent_hash = 2;
   bytes other_parent_hash = 3;
   uint64 timestamp = 4;
   repeated SignedTransaction transactions = 5;
+  NodeMeta node_meta = 6;
 }
 
 message Event {

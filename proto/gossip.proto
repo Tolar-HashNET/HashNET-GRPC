@@ -2,10 +2,13 @@ syntax = "proto3";
 
 package tolar.proto;
 
+import "event.proto";
+
 service Gossip {
   rpc GetDiff (DiffRequest) returns (stream SerializedEvent);
   rpc GetLastChainEvent(GetChainEventRequest) returns (GetLastChainEventResponse);
   rpc GetFirstChainEvent(GetChainEventRequest) returns (SerializedEvent);
+  rpc ManageNode(NodeMeta) returns (ManageNodeResponse);
 }
 
 message LastChainEventIndex {
@@ -33,4 +36,7 @@ message GetChainEventRequest {
 message GetLastChainEventResponse {
   bytes hash = 1;
   uint64 index = 2;
+}
+
+message ManageNodeResponse {
 }

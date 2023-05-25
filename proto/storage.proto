@@ -4,6 +4,7 @@ package tolar.proto;
 
 import "block.proto";
 import "transaction.proto";
+import "event.proto";
 
 enum SentinelRank {
   NONE = 0;
@@ -26,6 +27,7 @@ message EventMetadata {
   uint64 timestamp = 7;
   repeated uint64 last_ancestors = 8;
   repeated uint64 first_descendants = 9;
+  NodeMeta node_meta = 10;
 }
 
 message DagSnapshot {
