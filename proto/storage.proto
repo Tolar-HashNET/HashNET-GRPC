@@ -47,6 +47,7 @@ message RecoverySnapshot {
   BlockchainSnapshot blockchain_snapshot = 4;
   uint64 network_id = 5;
   repeated PeerConfig active_peers = 6;
+  NodeActivationQueueRecovery node_activation_queue_recovery = 7;
 }
 
 message NodeId {
@@ -86,4 +87,20 @@ message FullNodeRecovery {
   string last_state_root_hash = 3;
   bytes last_block_hash = 4;
   uint64 last_block_index = 5;
+}
+
+message NodeToActivate {
+  NodeAction action = 1;
+  uint32 id = 2;
+  string endpoint = 3;
+}
+
+message NodesInRound {
+  repeated NodeToActivate nodes_in_round = 1;
+}
+
+message NodeActivationQueueRecovery {
+  map<uint64, NodesInRound> nodes_to_activate = 1;
+  uint64 max_processed_round_received = 2;
+  repeated NodeMeta requested_new_nodes = 3;
 }
