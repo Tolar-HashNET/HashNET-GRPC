@@ -34,12 +34,19 @@ message DagSnapshot {
   repeated uint64 chain_event_ids = 1;
 }
 
+message PeerConfig {
+  bytes public_key = 1;
+  string endpoint = 2;
+  uint64 id = 3;
+}
+
 message RecoverySnapshot {
   DagSnapshot gossip_snapshot = 1;
   DagSnapshot consensus_snapshot = 2;
   uint64 all_warden_round = 3;
   BlockchainSnapshot blockchain_snapshot = 4;
   uint64 network_id = 5;
+  repeated PeerConfig active_peers = 6;
 }
 
 message NodeId {
@@ -49,6 +56,15 @@ message NodeId {
 
 message NodeIdMap {
   repeated NodeId nodes = 1;
+}
+
+message NodeStartRound {
+  repeated uint64 ids = 1;
+  uint64 round = 2;
+}
+
+message NodeStartRoundList {
+  repeated NodeStartRound start_rounds = 1;
 }
 
 message SentinelsPerRound {
