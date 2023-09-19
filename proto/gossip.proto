@@ -18,6 +18,7 @@ message LastChainEventIndex {
 
 message DiffRequest {
   repeated LastChainEventIndex last_chain_event_index = 1;
+  repeated bytes known_chains = 2;
 }
 
 // This message is used to minimize deserialization/serialization for diff sender.
