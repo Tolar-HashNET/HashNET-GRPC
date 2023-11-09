@@ -48,6 +48,7 @@ message RecoverySnapshot {
   uint64 network_id = 5;
   repeated PeerConfig active_peers = 6;
   NodeActivationQueueRecovery node_activation_queue_recovery = 7;
+  GossipEventsQueueRecovery gossip_events_queue_recovery = 8;
 }
 
 message NodeId {
@@ -103,4 +104,9 @@ message NodeActivationQueueRecovery {
   map<uint64, NodesInRound> nodes_to_activate = 1;
   uint64 max_processed_round_received = 2;
   repeated NodeMeta requested_new_nodes = 3;
+}
+
+message GossipEventsQueueRecovery {
+  uint32 queued_creator_node_id = 1;
+  repeated bytes queued_events = 2;
 }
