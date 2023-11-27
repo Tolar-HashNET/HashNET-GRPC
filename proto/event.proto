@@ -4,12 +4,32 @@ package tolar.proto;
 
 import "transaction.proto";
 
+message DefaultAddAction {
+  string gossip_endpoint = 1;
+  bytes public_key = 2;
+}
+
+enum NetworkActionType {
+  ADD = 0;
+}
+
+message NetworkAction {
+  NetworkActionType action_type = 1;
+  bytes action_body = 2;
+}
+
+message NetworkUpdate {
+  string version = 1;
+  repeated NetworkAction actions = 2;
+}
+
 message EventBody {
   bytes signer = 1;
   bytes self_parent_hash = 2;
   bytes other_parent_hash = 3;
   uint64 timestamp = 4;
   repeated SignedTransaction transactions = 5;
+  optional NetworkUpdate network_update = 6;
 }
 
 message Event {
