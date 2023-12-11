@@ -4,6 +4,7 @@ package tolar.proto;
 
 import "block.proto";
 import "transaction.proto";
+import "event.proto";
 
 enum SentinelRank {
   NONE = 0;
@@ -38,6 +39,7 @@ message RecoverySnapshot {
   uint64 all_warden_round = 3;
   BlockchainSnapshot blockchain_snapshot = 4;
   uint64 network_id = 5;
+  NetworkUpdateActivatorRecovery network_update_activator = 6;
 }
 
 message NodeId {
@@ -68,4 +70,9 @@ message FullNodeRecovery {
   string last_state_root_hash = 3;
   bytes last_block_hash = 4;
   uint64 last_block_index = 5;
+}
+
+message NetworkUpdateActivatorRecovery {
+  uint32 activation_round = 1;
+  NetworkUpdate network_update = 2;
 }
