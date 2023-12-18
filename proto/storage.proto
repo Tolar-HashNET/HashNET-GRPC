@@ -40,6 +40,7 @@ message RecoverySnapshot {
   BlockchainSnapshot blockchain_snapshot = 4;
   uint64 network_id = 5;
   NetworkUpdateActivatorRecovery network_update_activator = 6;
+  uint64 last_round_received = 7;
 }
 
 message NodeId {
