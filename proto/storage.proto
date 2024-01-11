@@ -43,11 +43,13 @@ message RecoverySnapshot {
   uint64 last_round_received = 7;
 }
 
+// remove
 message NodeId {
   bytes chain_id = 1;
   uint32 id = 2;
 }
 
+// remove
 message NodeIdMap {
   repeated NodeId nodes = 1;
 }
@@ -76,4 +78,15 @@ message FullNodeRecovery {
 message NetworkUpdateActivatorRecovery {
   uint32 activation_round = 1;
   NetworkUpdate network_update = 2;
+}
+
+message Peer {
+  string gossip_endpoint = 1;
+  bytes public_key = 2;
+  uint32 id = 3;
+}
+
+message NetworkVersion {
+  uint32 version = 1;
+  repeated Peer peers = 2;
 }
