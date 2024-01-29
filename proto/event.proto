@@ -23,6 +23,10 @@ message NetworkUpdate {
   repeated NetworkAction actions = 2;
 }
 
+message NetworkVersionId {
+  uint64 value = 1;
+}
+
 message EventBody {
   bytes signer = 1;
   bytes self_parent_hash = 2;
@@ -30,6 +34,7 @@ message EventBody {
   uint64 timestamp = 4;
   repeated SignedTransaction transactions = 5;
   optional NetworkUpdate network_update = 6;
+  optional NetworkVersionId network_version = 7;
 }
 
 message Event {
