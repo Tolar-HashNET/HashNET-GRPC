@@ -15,6 +15,7 @@ message LastChainEventIndex {
 
 message DiffRequest {
   repeated LastChainEventIndex last_chain_event_index = 1;
+  uint64 network_version = 2;
 }
 
 // This message is used to minimize deserialization/serialization for diff sender.
