@@ -29,6 +29,7 @@ message SerializedEvent {
 
 message GetChainEventRequest {
   bytes chain_id = 1;
+  uint64 network_version = 2;
 }
 
 message GetLastChainEventResponse {
