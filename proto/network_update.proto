@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package tolar.proto;
+
+import "event.proto";
+
+
+service NetworkUpdateService {
+  rpc UpdateNetwork (UpdateNetworkRequest) returns (UpdateNetworkResponse);
+}
+
+message UpdateNetworkRequest {
+  bytes signature = 1;
+  NetworkUpdate network_update = 2;
+}
+
+message UpdateNetworkResponse {
+}
