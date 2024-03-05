@@ -9,8 +9,13 @@ message DefaultAddAction {
   bytes public_key = 2;
 }
 
+message DefaultRemoveAction {
+  bytes public_key = 1;
+}
+
 enum NetworkActionType {
   ADD = 0;
+  REMOVE = 1;
 }
 
 message NetworkAction {
