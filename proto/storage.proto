@@ -88,6 +88,7 @@ message Peer {
 
 message NetworkVersion {
   uint32 version = 1;
-  repeated Peer peers = 2;
-  DagSnapshot gossip_snapshot = 3;
+  uint32 next_node_id = 2;
+  repeated Peer peers = 3;
+  DagSnapshot gossip_snapshot = 4;
 }
