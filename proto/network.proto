@@ -7,6 +7,7 @@ service NetworkService {
     rpc MasterNodeCount(MasterNodeCountRequest) returns (MasterNodeCountResponse);
     rpc IsMasterNode(IsMasterNodeRequest) returns (IsMasterNodeResponse);
     rpc MaxPeerCount(MaxPeerCountRequest) returns (MaxPeerCountResponse);
+    rpc GetCurrentNetworkVersion(CurrentNetworkVersionRequest) returns (CurrentNetworkVersionResponse);
 }
 
 message PeerCountRequest{
@@ -31,4 +32,11 @@ message MaxPeerCountRequest{
 }
 message MaxPeerCountResponse{
     uint64 count = 1;
+}
+
+message CurrentNetworkVersionRequest{
+}
+
+message CurrentNetworkVersionResponse{
+    uint32 version = 1;
 }
