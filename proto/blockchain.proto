@@ -27,6 +27,7 @@ service BlockchainService {
     rpc GetGasEstimate(Transaction) returns (GetGasEstimateResponse);
     rpc TryCallTransaction(Transaction) returns (TryCallTransactionResponse);
     rpc GetPastEvents(GetPastEventsRequest) returns (GetPastEventsResponse);
+    rpc GetPastEventsByBlockRange(GetPastEventsByBlockRangeRequest) returns (GetPastEventsResponse);
 }
 
 message GetBlockCountRequest {
@@ -208,6 +209,13 @@ message TryCallTransactionResponse {
 message GetPastEventsRequest {
   bytes address = 1;
   bytes topic = 2;
+}
+
+message GetPastEventsByBlockRangeRequest {
+  bytes address = 1;
+  bytes topic = 2;
+  uint64 from_block_index = 3;
+  uint64 to_block_index = 4;
 }
 
 message PastEvent {
